@@ -14,6 +14,7 @@ package ru.job4j.max;
 	*@return max between first and second
 	*/
 	public int max(int first, int second) {
-	return int maxi = (first > second) ? first : second;
+	int maxi = (first > second) ? first : second;
+	return maxi;
 	}
 }
