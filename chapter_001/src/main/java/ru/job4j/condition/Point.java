@@ -46,7 +46,7 @@ public class Point {
      */
 	public boolean is(int a, int b) {
 	boolean flag = false;
-	if (this.y == a * this.x + b) {
+	if (getY() == a * getX() + b) {
 	flag = true;
 	}
 	return flag;
