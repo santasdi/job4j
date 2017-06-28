@@ -45,10 +45,6 @@ public class Point {
 	 * @return true is belonging poit fo function
      */
 	public boolean is(int a, int b) {
-	boolean flag = false;
-	if (getY() == a * getX() + b) {
-	flag = true;
-	}
-	return flag;
+	return this.y == a * this.y + b;
 	}
 }
