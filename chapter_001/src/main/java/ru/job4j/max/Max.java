@@ -16,4 +16,14 @@ package ru.job4j.max;
 	public int max(int first, int second) {
 	return (first > second) ? first : second;
 	}
+	/**
+	* returning max between 3 numbers.
+	* @param first is first number
+	* @param second is second number
+	* @param third is third number
+	* @return max number
+	*/
+	public int max(int first, int second, int third) {
+	return max(third, max(first, second));
+	}
 }

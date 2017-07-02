@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 	*/
 	public void findingMaxBetweenFirstAndSecond() {
 	Max findingMax = new Max();
-	int expected = 3;
-	assertThat(findingMax.max(3, 1), is(expected));
+	int expected = 6;
+	assertThat(findingMax.max(3, 1, 6), is(expected));
 	}
 }
