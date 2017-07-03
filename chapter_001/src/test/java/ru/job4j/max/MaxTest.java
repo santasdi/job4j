@@ -1,5 +1,6 @@
 package ru.job4j.max;
 
+import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
@@ -13,6 +14,7 @@ import static org.junit.Assert.assertThat;
 	/**
 	*Test finding maximum.
 	*/
+	@Test
 	public void findingMaxBetweenFirstAndSecond() {
 	Max findingMax = new Max();
 	int expected = 6;
