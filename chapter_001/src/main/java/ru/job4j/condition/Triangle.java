@@ -31,34 +31,22 @@ public class Triangle {
     this.c = c;
 }
 	/**
-	 * Method for calculating sideA.
-	 * @return length sideA
+	 * Method for calculating distance between points.
+	 * @param first is coordinates of first point
+	 * @param second is coordinates of second point
+	 * @return value of distance
      */
-	public double sideA() {
-	return Math.sqrt((a.getX() - b.getX()) * (a.getX() - b.getX()) + (a.getY() - b.getY()) * (a.getY() - b.getY()));
-	}
-	/**
-	 * Method for calculating sideB.
-	 * @return length sideB
-     */
-	public double sideB() {
-	return Math.sqrt((a.getX() - c.getX()) * (a.getX() - c.getX()) + (a.getY() - c.getY()) * (a.getY() - c.getY()));
-	}
-	/**
-	 * Method for calculating sideC.
-	 * @return length sideC
-     */
-	public double sideC() {
-	return Math.sqrt((b.getX() - c.getX()) * (b.getX() - c.getX()) + (b.getY() - c.getY()) * (b.getY() - c.getY()));
+	public double distance(Point first, Point second) {
+	return Math.sqrt((first.getX() - second.getX()) * (first.getX() - second.getX()) + (first.getY() - second.getY()) * (first.getY() - second.getY()));
 	}
 	/**
 	 * Method for area calculation.
 	 * @return area is square of triangle
      */
 	public double area() {
-	double p = (sideA() + sideB() + sideC()) / 2.0;
-	double area = Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
-	if (sideA() + sideB() > sideC()) {
+	double p = (distance(this.a, this.b) + distance(this.a, this.c) + distance(this.b, this.c)) / 2.0;
+	double area = Math.sqrt(p * (p - distance(this.a, this.b)) * (p - distance(this.a, this.c)) * (p - distance(this.b, this.c)));
+	if (distance(this.a, this.b) + distance(this.a, this.c) > distance(this.b, this.c)) {
 	return area;
 	} else {
 	return -1.0;
