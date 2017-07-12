@@ -16,20 +16,11 @@ public String piramid(int h) {
 StringBuilder piramid = new StringBuilder();
 	for (int i = 1; i <= h; i++) {
 		for (int j = 1; j <= h + (h - 1); j++) {
-		if (j < 3) {
-	    if (j <= h - i) {
-	    piramid.append(" ");
+	    if (j > h - i && j < h + i) {
+	    piramid.append("^");
            } else {
-           piramid.append("^");
+           piramid.append(" ");
 	   }
-        }
-	if (j >= 3) {
-	  if (j < h + i) {
-	  piramid.append("^");
-	  } else {
-	  piramid.append(" ");
-        }
-	}
    }
 	piramid.append(System.getProperty("line.separator"));
 }
