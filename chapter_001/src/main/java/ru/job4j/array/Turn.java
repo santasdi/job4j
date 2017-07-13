@@ -17,6 +17,7 @@ public class Turn {
 		int cache = array[i];
 		array[i] = array[array.length - 1 - i];
 		array[array.length - 1 - i] = cache;
-	} return array;
+	}
+	return array;
 }
 }
