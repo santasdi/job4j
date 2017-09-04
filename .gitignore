@@ -13,6 +13,6 @@ hs_err_pid*
 
 .idea
 *.iml
-.target/
-.chapter_001/target
+chapter_001/target
 ideA.
+target
