@@ -19,9 +19,9 @@ public class ArrayDublicate {
             String temp = array[i];
 			for (int j = i; j < array.length - 1; j++) {
                 if (array[i].equals(array[j + 1])) {
-                for (int k = i; k < array.length - 1; k++) {
-                array[k] = array[k + 1];
-                }
+				for (int k = i; k < array.length - 1; k++) {
+				array[k] = array[k + 1];
+				}
 				count++;
 				}
 		    }
