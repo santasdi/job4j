@@ -37,7 +37,6 @@ public class Item {
     public Item(String name, String desc, long created) {
         this.name = name;
         this.desc = desc;
-        this.created = created;
 
     }
 
