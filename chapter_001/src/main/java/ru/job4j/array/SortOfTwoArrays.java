@@ -7,16 +7,18 @@ package ru.job4j.array;
  * @since 0.1
  */
 public class SortOfTwoArrays {
-    /*
-     *Sorting two arrays
+    /**
+     *Sorting two arrays.
      * @param first is first array
      * @param second is second array
      * @return result arrays after sorting
      */
+
     public int[] arraySort(int[] first, int[] second) {
         int[] result = new int[first.length + second.length];
         for (int i = 0; i < first.length; i++) {
-            result[i] = first[i];}
+            result[i] = first[i];
+        }
         for (int k = 0; k < second.length; k++) {
             result[first.length + k] = second[k];
         }
@@ -27,7 +29,6 @@ public class SortOfTwoArrays {
                     result[m] = result[m + 1];
                     result[m + 1] = temp;
                 }
-
             }
         }
         return result;

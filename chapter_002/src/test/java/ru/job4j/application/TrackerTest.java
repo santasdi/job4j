@@ -1,8 +1,8 @@
-package ru.job4j.systemOfApplications;
+package ru.job4j.application;
 
 import org.junit.Test;
-import ru.job4j.systemOfApplications.models.Item;
-import ru.job4j.systemOfApplications.tracker.Tracker;
+import ru.job4j.application.models.Item;
+import ru.job4j.application.tracker.Tracker;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -30,9 +30,9 @@ public class TrackerTest {
      * Test to deleting item.
      */
     @Test
-    public void whenDeleteFirstItemThenSecondPlacedOnFirst(){
-       Item first = new Item("first","interesting", 45);
-       Item second = new Item("second","very interesting", 213);
+    public void whenDeleteFirstItemThenSecondPlacedOnFirst() {
+       Item first = new Item("first", "interesting", 45);
+       Item second = new Item("second", "very interesting", 213);
        Tracker tracker = new Tracker();
        tracker.add(first);
        tracker.add(second);
@@ -44,12 +44,12 @@ public class TrackerTest {
     }
 
     /**
-     * Test to update item
+     * Test to update item.
      */
     @Test
-    public void whenUpdateItemThenNewItemOnUpdatePossition(){
-        Item first = new Item("first","boring", 673);
-        Item second = new Item("second","very boring", 111);
+    public void whenUpdateItemThenNewItemOnUpdatePossition() {
+        Item first = new Item("first", "boring", 673);
+        Item second = new Item("second", "very boring", 111);
         Tracker tracker = new Tracker();
         tracker.add(first);
         tracker.add(second);
@@ -57,16 +57,16 @@ public class TrackerTest {
         Item[] expected = new Item[2];
         expected[0] = second;
         expected[1] = second;
-        assertThat(tracker.findAll(),is(expected));
+        assertThat(tracker.findAll(), is(expected));
 
     }
     /**
-     * Test finding all items
+     * Test finding all items.
      */
     @Test
     public void whenFindingItemsThenReturnArrayOfItems() {
-        Item first = new Item("first","boring", 673);
-        Item second = new Item("second","very boring", 111);
+        Item first = new Item("first", "boring", 673);
+        Item second = new Item("second", "very boring", 111);
         Tracker tracker = new Tracker();
         tracker.add(first);
         tracker.add(second);
@@ -77,12 +77,12 @@ public class TrackerTest {
         assertThat(result, is(expected));
     }
     /**
-     * Test for find by name
+     * Test for find by name.
      */
     @Test
-    public void whenFindByNameThenReturnArrayOfItems(){
-        Item first = new Item("first","boring", 673);
-        Item second = new Item("second","very boring", 111);
+    public void whenFindByNameThenReturnArrayOfItems() {
+        Item first = new Item("first", "boring", 673);
+        Item second = new Item("second", "very boring", 111);
         Tracker tracker = new Tracker();
         tracker.add(first);
         tracker.add(second);
@@ -92,12 +92,12 @@ public class TrackerTest {
         assertThat(result, is(expected));
     }
     /**
-     * Test for finf by id
+     * Test for find by id.
      */
     @Test
-    public void whenFindByIdThenReturnItem(){
-        Item first = new Item("first","boring", 673);
-        Item second = new Item("second","very boring", 111);
+    public void whenFindByIdThenReturnItem() {
+        Item first = new Item("first", "boring", 673);
+        Item second = new Item("second", "very boring", 111);
         Tracker tracker = new Tracker();
         tracker.add(first);
         tracker.add(second);

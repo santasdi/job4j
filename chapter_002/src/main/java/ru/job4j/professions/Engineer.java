@@ -7,14 +7,44 @@ package ru.job4j.professions;
  * @since 11.09.2017
  */
 public class Engineer {
-    Profession engineer = new Profession("Геннадий", "конструктор", 41);
-    public String fix(Detail detail){
-        return (engineer.getType() + " " + engineer.getName() + " производит починку " + detail.type);
+    /**
+     *class engineer.
+     */
+    private Profession engineer = new Profession("Геннадий", "конструктор", 41);
+
+    /**
+     * Fixing detail.
+     * @param detail is detail
+     * @return string
+     */
+    public String fix(Detail detail) {
+        return (engineer.getType() + " " + engineer.getName() + " производит починку " + detail.getType());
     }
+
+    /**
+     * Checking detail.
+     * @param detail is detail
+     * @return string
+     */
     public String check(Detail detail) {
-        return  (engineer.getType() + " " + engineer.getName() + " производит осмотр " + detail.type);
+        return  (engineer.getType() + " " + engineer.getName() + " производит осмотр " + detail.getType());
     }
 }
+
+/**
+ * Class detail.
+ */
 class Detail {
-    String type = "подвески";
+    /**
+     * type of detail.
+     */
+    private String type = "подвески";
+
+    /**
+     * Geting type.
+     * @return type of detail
+     */
+    public String getType() {
+        return this.type;
+    }
 }

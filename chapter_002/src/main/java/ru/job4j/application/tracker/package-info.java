@@ -4,4 +4,4 @@
  * @version $Id$
  * @since 0.1
  */
-package ru.job4j.systemOfApplications.tracker;
+package ru.job4j.application.tracker;

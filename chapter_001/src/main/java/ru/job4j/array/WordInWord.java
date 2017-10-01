@@ -24,8 +24,7 @@ class WordInWord {
                 if (count == subChars.length) {
                     contains = true;
                     break;
-                }
-                else if (subChars[i] == originChars[j]) {
+                } else if (subChars[i] == originChars[j]) {
                     count++;
                     i++;
                 } else {

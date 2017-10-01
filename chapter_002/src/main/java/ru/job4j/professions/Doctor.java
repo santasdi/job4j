@@ -7,18 +7,52 @@ package ru.job4j.professions;
  * @since 11.09.2017
  */
 public class Doctor extends Profession {
-    Profession doctor = new Profession("Иван", "хирург", 40);
+    /**
+     * doctor class.
+     */
+    private Profession doctor = new Profession("Иван", "хирург", 40);
+
+    /**
+     * Giving recipe to pacient.
+     * @param pacient is pacient class
+     * @return string
+     */
     public String giveRecipe(Pacient pacient) {
-        return (doctor.getType() + " " + doctor.getName() + " выписывает рецепт для " + pacient.name);
+        return (doctor.getType() + " " + doctor.getName() + " выписывает рецепт для " + pacient.getName());
     }
 
+    /**
+     * Healing pacient.
+     * @param pacient is pacient class
+     * @return string
+     */
     public String heal(Pacient pacient) {
-        return (doctor.getType() + " " + doctor.getName() + " лечит " + pacient.name);
+        return (doctor.getType() + " " + doctor.getName() + " лечит " + pacient.getName());
     }
+
+    /**
+     * Diagnosis pacient.
+     * @param pacient is pacient class
+     * @return string
+     */
     public String diagnosis(Pacient pacient) {
-        return (doctor.getName() + " " + doctor.getType() + " ставит диагнос для " + pacient.name);
+        return (doctor.getName() + " " + doctor.getType() + " ставит диагнос для " + pacient.getName());
     }
 }
+
+/**
+ * Class pacient.
+ */
 class Pacient {
-    String name = "Василия";
+    /**
+     * Name of pacient.
+     */
+    private String name = "Василия";
+    /**
+     * Get name of patient.
+     * @return name
+     */
+    public String getName() {
+        return this.name;
+    }
 }
