@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @version $Id$
  * @since 21.09.2017
  */
-public class ConsoleInput implements Input{
+public class ConsoleInput implements Input {
     /**
      * Scanner input stream.
      */

@@ -50,7 +50,7 @@ public class StartUI {
     /**
      * Input.
      */
-    private ConsoleInput input;
+    private Input input;
     /**
      * Tracker.
      */
@@ -58,10 +58,12 @@ public class StartUI {
 
     /**
      * Constructor.
+     * @param tracker is tracker object
+     * @param input is input object
      */
-    public StartUI() {
-        this.input = new ConsoleInput();
-        this.tracker = new Tracker();
+    public StartUI(Tracker tracker, Input input) {
+        this.input = input;
+        this.tracker = tracker;
     }
 
     /**
@@ -70,7 +72,7 @@ public class StartUI {
      * @param tracker is tracker object.
      * @param input is input object.
      */
-    private void add(Tracker tracker, ConsoleInput input) {
+    private void add(Tracker tracker, Input input) {
         String name = input.ask("Enter name :");
         String desc = input.ask("Enter description :");
         tracker.add(new Item(name, desc, 11));
@@ -91,7 +93,7 @@ public class StartUI {
      * @param tracker is tracker object.
      * @param input is input object
      */
-    private void editItem(Tracker tracker, ConsoleInput input) {
+    private void editItem(Tracker tracker, Input input) {
         String id = input.ask("Enter id :");
         tracker.update(id, tracker.findById(id));
     }
@@ -102,7 +104,7 @@ public class StartUI {
      * @param tracker is tracker object.
      * @param input is input object
      */
-    private void deleteItem(Tracker tracker, ConsoleInput input) {
+    private void deleteItem(Tracker tracker, Input input) {
         String id = input.ask("Enter id :");
         tracker.delete(tracker.findById(id));
     }
@@ -113,7 +115,7 @@ public class StartUI {
      * @param tracker is tracker object.
      * @param input is input object
      */
-    private void findById(Tracker tracker, ConsoleInput input) {
+    private void findById(Tracker tracker, Input input) {
         String id = input.ask("Enter id :");
         Item item = tracker.findById(id);
         System.out.println(item);
@@ -125,7 +127,7 @@ public class StartUI {
      * @param tracker is tracker object.
      * @param input  is input object
      */
-    private void findByName(Tracker tracker, ConsoleInput input) {
+    private void findByName(Tracker tracker, Input input) {
         String name = input.ask("Enter name :");
         Item[] item = tracker.findByName(name);
         System.out.println(Arrays.toString(item));
@@ -136,13 +138,13 @@ public class StartUI {
      * @param args is args
      */
     public static void main(String[] args) {
-        new StartUI().start();
+        new StartUI(new Tracker(), new ConsoleInput()).init();
     }
 
     /**
      * Starting of application.
      */
-    public void start() {
+    public void init() {
         String answer;
         while (true) {
             answer = input.ask(menu);
@@ -168,6 +170,7 @@ public class StartUI {
                 case FIND_BY_NAME:
                     this.findByName(tracker, input);
                     break;
+                    default:
             }
 
         }
