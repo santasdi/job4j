@@ -15,7 +15,6 @@ public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
     /**
      * Asking question.
-     * @param question is question.
      * @return answer of user.
      */
     @Override
