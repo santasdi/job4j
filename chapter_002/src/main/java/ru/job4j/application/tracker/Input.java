@@ -6,8 +6,8 @@ package ru.job4j.application.tracker;
 public interface Input {
     /**
      * Asking from user.
-     * @param answer is answer of user
+     * @param question is question.
      * @return us answer
      */
-    String ask(String answer);
+    String ask(String question);
 }
