@@ -30,4 +30,9 @@ package ru.job4j.application.tracker;
     public String ask(String question) {
         return answers[position++];
      }
- }
+
+    @Override
+    public int ask(String question, int[] range) {
+        return 0;
+    }
+}

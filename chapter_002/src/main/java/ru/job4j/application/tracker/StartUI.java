@@ -31,21 +31,20 @@ public class StartUI {
      * @param args is args
      */
     public static void main(String[] args) {
-        new StartUI(new Tracker(), new ConsoleInput()).init();
+        new StartUI(new Tracker(), new ValidateInput()).init();
     }
 
     /**
      * Starting of application.
      */
     public void init() {
-        String answer = "";
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions();
+        int[] range = menu.fillActions();
         boolean status = true;
         int key;
         do {
             menu.show();
-            key = Integer.parseInt(input.ask(answer));
+            key = input.ask("Select:", range);
             menu.select(key);
             if (key == 6) {
                 status = false;

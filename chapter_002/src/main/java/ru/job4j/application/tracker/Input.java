@@ -10,4 +10,12 @@ public interface Input {
      * @return us answer
      */
     String ask(String question);
+
+    /**
+     * Overriding method ask.
+     * @param question is question
+     * @param range is range of menu actions.
+     * @return return key of action
+     */
+    int ask(String question, int[] range);
 }

@@ -31,9 +31,10 @@ public class MenuTracker {
     }
 
     /**
-     * initialize menu.
+     * Initialize menu.
+     * @return count of actions.
      */
-    public void fillActions() {
+    public int[] fillActions() {
         this.action[0] = new AddItem();
         this.action[1] = new ShowItems();
         this.action[2] = new EditItem();
@@ -41,6 +42,11 @@ public class MenuTracker {
         this.action[4] = new FindById();
         this.action[5] = new FindByName();
         this.action[6] = new Exit();
+        int[] range = new int[this.action.length];
+        for (int i = 0; i != this.action.length; i++) {
+            range[i] = i;
+        }
+        return range;
     }
 
     /**
