@@ -19,6 +19,10 @@ public class MenuTracker {
      * tracker object.
      */
     private Tracker tracker;
+    /**
+     * Position of action s in array.
+     */
+    int position = 0;
 
     /**
      * Constructor.
@@ -35,20 +39,22 @@ public class MenuTracker {
      * @return count of actions.
      */
     public int[] fillActions() {
-        this.action[0] = new AddItem();
-        this.action[1] = new ShowItems();
-        this.action[2] = new EditItem();
-        this.action[3] = new DeleteItem();
-        this.action[4] = new FindById();
-        this.action[5] = new FindByName();
-        this.action[6] = new Exit();
+        this.action[position++] = new AddItem();
+        this.action[position++] = new ShowItems();
+        this.action[position++] = new EditItem();
+        this.action[position++] = new DeleteItem();
+        this.action[position++] = new FindById();
+        this.action[position++] = new FindByName();
+        this.action[position++] = new Exit();
         int[] range = new int[this.action.length];
         for (int i = 0; i != this.action.length; i++) {
             range[i] = i;
         }
         return range;
     }
-
+    public void addAction(BaseAction action) {
+        this.action[position++] = action;
+    }
     /**
      * Show all actions.
      */
@@ -69,7 +75,7 @@ public class MenuTracker {
     /**
      * Class about adding action.
      */
-    private class AddItem implements UserAction {
+    private class AddItem extends BaseAction {
         /**
          * Key of action.
          * @return
@@ -92,19 +98,21 @@ public class MenuTracker {
         }
 
         /**
-         * Info about action.
-         * @return
+         * Information about action.
+         *
+         * @return string with information
          */
         @Override
         public String info() {
             return String.format("%s. %s", this.key(), "Add new item");
         }
+
     }
 
     /**
      * Class about showing items action.
      */
-    private class ShowItems implements UserAction {
+    private class ShowItems extends BaseAction {
         /**
          * Key of action.
          * @return
@@ -135,7 +143,7 @@ public class MenuTracker {
     /**
      * Class about editing items action.
      */
-    private static class EditItem implements UserAction {
+    private static class EditItem extends BaseAction {
 
         /**
          * Key for action.
@@ -173,7 +181,7 @@ public class MenuTracker {
     /**
      * Class about delete action.
      */
-    private class DeleteItem implements UserAction {
+    private class DeleteItem extends BaseAction {
 
         /**
          * Key for action.
@@ -211,7 +219,7 @@ public class MenuTracker {
     /**
      * Class about finding by id action.
      */
-    private class FindById implements UserAction {
+    private class FindById extends BaseAction {
         /**
          * Key for action.
          *
@@ -249,7 +257,7 @@ public class MenuTracker {
     /**
      * Class about finding by name action.
      */
-    private class FindByName implements UserAction {
+    private class FindByName extends BaseAction {
 
         /**
          * Key for action.
@@ -288,7 +296,7 @@ public class MenuTracker {
     /**
      * Class about exit action.
      */
-    private class Exit implements UserAction {
+    private class Exit extends BaseAction {
 
         /**
          * Key for action.
