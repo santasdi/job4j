@@ -41,19 +41,17 @@ public class ConvertList {
                 for (int j = 0; j < rows; j++) {
                     array[i][j] = list.get(count);
                     count++;
-
                 }
             }
         } else {
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < rows; j++) {
-                    if (count < list.size()) {
+                    if (count < list.size() && list.get(count) != null) {
                         array[i][j] = list.get(count);
-                        count++;
                     } else {
                         array[i][j] = 0;
-
                     }
+                    count++;
                 }
             }
         }
