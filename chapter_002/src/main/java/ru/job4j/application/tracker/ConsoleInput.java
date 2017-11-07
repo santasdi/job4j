@@ -1,5 +1,6 @@
 package ru.job4j.application.tracker;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,7 +19,7 @@ public class ConsoleInput implements Input {
      * @return answer of user.
      */
     @Override
-    public String ask(String question) {
+    public String ask(String question, int size) {
         System.out.println(question);
         String line = scanner.nextLine();
         return line;
@@ -27,15 +28,15 @@ public class ConsoleInput implements Input {
     /**
      * Override method asking.
      * @param question is question
-     * @param range is range of menu actions.
+     * @param actions is range of menu actions.
      * @return key of action
      */
     @Override
-    public int ask(String question, int[] range) {
-        int key = Integer.parseInt(this.ask(question));
+    public int ask(String question, List<UserAction> actions) {
+        int key = Integer.parseInt(this.ask(question, actions.size()));
         boolean exist = false;
-        for (int value : range) {
-            if (value == key) {
+        for (int index = 0; index < actions.size(); index++) {
+            if (key == actions.get(index).key()) {
                 exist = true;
                 break;
             }

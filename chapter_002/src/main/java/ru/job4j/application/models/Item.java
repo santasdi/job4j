@@ -119,4 +119,15 @@ public class Item {
     public String getComments() {
         return comments;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                ", desc='" + desc + '\'' +
+                ", created=" + created +
+                ", comments='" + comments + '\'' +
+                '}';
+    }
 }

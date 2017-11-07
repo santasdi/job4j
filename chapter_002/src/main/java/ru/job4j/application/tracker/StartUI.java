@@ -1,5 +1,7 @@
 package ru.job4j.application.tracker;
 
+import java.util.List;
+
 /**
  * StartUI.
  * @author Artem Bartenev (bartenev92@gmail.com)
@@ -39,12 +41,12 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        int[] range = menu.fillActions();
+        List<UserAction> action = menu.fillActions();
         boolean status = true;
         int key;
         do {
             menu.show();
-            key = input.ask("Select:", range);
+            key = input.ask("Select:",action);
             menu.select(key);
             if (key == 6) {
                 status = false;

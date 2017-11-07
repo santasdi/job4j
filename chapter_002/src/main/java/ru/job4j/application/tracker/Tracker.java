@@ -2,6 +2,9 @@ package ru.job4j.application.tracker;
 
 import ru.job4j.application.models.Item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Methods to control items.
  * @author Artem Bartenev (bartenev92@gmail.com)
@@ -9,14 +12,11 @@ import ru.job4j.application.models.Item;
  * @since 21.09.2017Created by Артем on 17.09.2017.
  */
 public class Tracker {
+
     /**
-     * Array of items.
+     * List of items/
      */
-    private Item[] items = new Item[100];
-    /**
-     * position if item in array.
-     */
-    private int possition = 0;
+    private List<Item> items = new ArrayList<Item>();
     /**
      * counter for id generation.
      */
@@ -37,8 +37,9 @@ public class Tracker {
     public Item add(Item item) {
         String s = Double.toString(generateId());
         item.setId(s);
-        this.items[possition++] = item;
-        return item;
+        this.items.add(item);
+        int i = this.items.lastIndexOf(item);
+        return this.items.get(i);
     }
 
     /**
@@ -46,13 +47,7 @@ public class Tracker {
      * @param item is for id of item
      */
     public void delete(Item item) {
-        for (int i = 0; i != this.possition; i++) {
-            if (this.items[i] != null && this.items[i].getId().equals(item.getId())) {
-                System.arraycopy(this.items, i + 1, this.items, i, this.items.length - possition);
-                break;
-            }
-        }
-        possition--;
+        this.items.remove(item);
     }
 
     /**
@@ -61,33 +56,19 @@ public class Tracker {
      * @param item is item will be updating to new item
      */
     public void update(String id, Item item) {
-        for (int index = 0; index < this.items.length; index++) {
-            if (this.items[index] != null && id.equals(this.items[index].getId())) {
-                this.items[index] = item;
+        for (int index = 0; index < this.items.size(); index++) {
+            if (this.items.get(index) != null && id.equals(this.items.get(index).getId())) {
+                this.items.set(index,item);
             }
         }
     }
 
     /**
-     * Finding all items whithout null elements.
+     * Finding all items without null elements.
      * @return items
      */
-    public Item[] findAll() {
-        int count = 0;
-        Item[] result = new Item[possition];
-        for (int index = 0; index != this.possition; index++) {
-            if (this.items[index] != null) {
-                result[index] = this.items[index];
-                count++;
-            } else {
-                for (int k = index; k < this.possition - 1; k++) {
-                    result[k] = this.items[k + 1];
-                    count++;
-                }
-            }
-        }
-        System.arraycopy(result, 0, result, 0, count);
-        return result;
+    public List<Item> findAll() {
+        return this.items;
     }
 
     /**
@@ -95,18 +76,11 @@ public class Tracker {
      * @param key is item's name
      * @return items that was found
      */
-    public Item[] findByName(String key) {
-        int count = 0;
-        for (int index = 0; index < possition; index++) {
-            if (this.items[index] != null && this.items[index].getName().equals(key)) {
-                count++;
-            }
-        }
-        Item[] result = new Item[count];
-        for (int i = 0; i < count; i++) {
-            if (this.items[i] != null && this.items[i].getName().equals(key)) {
-                result[i] = this.items[i];
-            }
+    public List<Item> findByName(String key) {
+        List<Item> result = new ArrayList<Item>();
+        for (int index = 0; index < this.items.size(); index++) {
+            if(key.equals(this.items.get(index).getName()));
+            result.add(this.items.get(index));
         }
         return result;
     }
@@ -118,14 +92,13 @@ public class Tracker {
      */
     public Item findById(String id) {
         Item result = null;
-        for (Item item : this.items) {
-            if (item != null && item.getId().equals(id)) {
-                result = item;
+        for (int index = 0; index < this.items.size(); index++) {
+            if (id.equals(this.items.get(index).getId())) {
+                result = this.items.get(index);
                 break;
             }
         }
         return result;
     }
-
 
 }

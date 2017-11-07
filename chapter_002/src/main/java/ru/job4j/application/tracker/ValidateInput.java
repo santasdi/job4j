@@ -1,5 +1,7 @@
 package ru.job4j.application.tracker;
 
+import java.util.List;
+
 /**
  * ValidateInput.
  * @author Artem Bartenev (bartenev92@gmail.com)
@@ -10,16 +12,16 @@ public class ValidateInput extends ConsoleInput {
     /**
      * Validation of ask.
      * @param question is question
-     * @param range    is range of menu actions.
+     * @param actions   is range of menu actions.
      * @return value of console input.
      */
     @Override
-    public int ask(String question, int[] range) {
+    public int ask(String question, List<UserAction> actions) {
         boolean invalid = true;
         int value = 0;
         do {
             try {
-                value = super.ask(question, range);
+                value = super.ask(question, actions);
                 invalid = false;
             } catch (MenuOutException e) {
                 System.out.println("Please select key from menu.");

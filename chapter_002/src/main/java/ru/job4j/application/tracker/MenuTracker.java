@@ -1,16 +1,18 @@
 package ru.job4j.application.tracker;
 
 import ru.job4j.application.models.Item;
-import java.util.Arrays;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Артем on 07.10.2017.
  */
 public class MenuTracker {
     /**
-     * array of actions.
+     * List of actions.
      */
-    private UserAction[] action = new UserAction[7];
+    private List<UserAction> action = new ArrayList<UserAction>();
     /**
      * input object.
      */
@@ -19,10 +21,6 @@ public class MenuTracker {
      * tracker object.
      */
     private Tracker tracker;
-    /**
-     * Position of action s in array.
-     */
-    int position = 0;
 
     /**
      * Constructor.
@@ -38,22 +36,24 @@ public class MenuTracker {
      * Initialize menu.
      * @return count of actions.
      */
-    public int[] fillActions() {
-        this.action[position++] = new AddItem(0,"Add item");
-        this.action[position++] = new ShowItems(1,"Show all items");
-        this.action[position++] = new EditItem(2, "Edit item");
-        this.action[position++] = new DeleteItem(3, "Delete item");
-        this.action[position++] = new FindById(4, "Find by id");
-        this.action[position++] = new FindByName(5, "Find by name");
-        this.action[position++] = new Exit(6, "Exit");
-        int[] range = new int[this.action.length];
-        for (int i = 0; i != this.action.length; i++) {
-            range[i] = i;
-        }
-        return range;
+    public List<UserAction> fillActions() {
+        this.action.add(new AddItem(0,"Add item"));
+        this.action.add(new ShowItems(1,"Show all items"));
+        this.action.add(new EditItem(2, "Edit item"));
+        this.action.add(new DeleteItem(3, "Delete item"));
+        this.action.add(new FindById(4, "Find by id"));
+        this.action.add(new FindByName(5, "Find by name"));
+        this.action.add(new Exit(6, "Exit"));
+
+        return this.action;
     }
+
+    /**
+     * Adding action to list of actions.
+     * @param action
+     */
     public void addAction(BaseAction action) {
-        this.action[position++] = action;
+        this.action.add(action);
     }
     /**
      * Show all actions.
@@ -69,7 +69,7 @@ public class MenuTracker {
      * @param key is key of action.
      */
     public void select(int key) {
-        this.action[key].execute(this.input, this.tracker);
+        this.action.get(key).execute(this.input, this.tracker);
     }
 
     /**
@@ -100,8 +100,8 @@ public class MenuTracker {
          */
         @Override
         public void execute(Input input, Tracker tracker) {
-            String name = input.ask("Enter name :");
-            String desc = input.ask("Enter description :");
+            String name = input.ask("Enter name :", action.size());
+            String desc = input.ask("Enter description :", action.size());
             tracker.add(new Item(name, desc, 11));
         }
 
@@ -134,7 +134,7 @@ public class MenuTracker {
          */
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.out.println(Arrays.toString(tracker.findAll()));
+            System.out.println(tracker.findAll());
         }
 
     }
@@ -143,7 +143,7 @@ public class MenuTracker {
     /**
      * Class about editing items action.
      */
-    private static class EditItem extends BaseAction {
+    private class EditItem extends BaseAction {
         /**
          * Constructor.
          * @param key is key
@@ -170,7 +170,7 @@ public class MenuTracker {
          */
         @Override
         public void execute(Input input, Tracker tracker) {
-            String id = input.ask("Enter id :");
+            String id = input.ask("Enter id :", action.size());
             tracker.update(id, tracker.findById(id));
         }
     }
@@ -207,7 +207,7 @@ public class MenuTracker {
          */
         @Override
         public void execute(Input input, Tracker tracker) {
-            String id = input.ask("Enter id :");
+            String id = input.ask("Enter id :", action.size());
             tracker.delete(tracker.findById(id));
         }
     }
@@ -241,7 +241,7 @@ public class MenuTracker {
          */
         @Override
         public void execute(Input input, Tracker tracker) {
-            String id = input.ask("Enter id :");
+            String id = input.ask("Enter id :", action.size());
             Item item = tracker.findById(id);
             System.out.println(item);
         }
@@ -271,9 +271,9 @@ public class MenuTracker {
          */
         @Override
         public void execute(Input input, Tracker tracker) {
-            String name = input.ask("Enter name :");
-            Item[] item = tracker.findByName(name);
-            System.out.println(Arrays.toString(item));
+            String name = input.ask("Enter name :", action.size());
+            List<Item> items = tracker.findByName(name);
+            System.out.println(items);
         }
 
     }

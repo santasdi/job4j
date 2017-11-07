@@ -6,6 +6,10 @@ import ru.job4j.application.tracker.Input;
 import ru.job4j.application.tracker.StartUI;
 import ru.job4j.application.tracker.StubInput;
 import ru.job4j.application.tracker.Tracker;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
@@ -21,9 +25,14 @@ public class StubInputTest {
     @Test
     public void whenAddItemToTrackerThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "test name", "test desc", "6"});
+        List<String> list = new ArrayList<String>();
+        list.add("0");
+        list.add("test name");
+        list.add("test desc");
+        list.add("6");
+        Input input = new StubInput(list);
         new StartUI(tracker, input).init();
-        assertThat(tracker.findAll()[0].getName(), is("test name"));
+        assertThat(tracker.findAll().get(0), is("test name"));
     }
 
     /**
@@ -32,7 +41,12 @@ public class StubInputTest {
     @Test
     public void whenShowAllItemsOfTrackerThenTrackerHasItemsWithTestNames() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "first name", "first desc", "6"});
+        List<String> list = new ArrayList<String>();
+        list.add("0");
+        list.add("first name");
+        list.add("second desc");
+        list.add("6");
+        Input input = new StubInput(list);
         new StartUI(tracker, input).init();
         assertThat(tracker.findAll(), is(tracker.findByName("first name")));
     }
@@ -44,7 +58,13 @@ public class StubInputTest {
     public void whenUpdateThenTrackerHasUpdatedValue() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("first name", "first desc", 9));
-        Input input = new StubInput(new String[]{"2", item.getId(), "first name", "desc", "6"});
+        List<String> list = new ArrayList<String>();
+        list.add("2");
+        list.add(item.getId());
+        list.add("first name");
+        list.add("second desc");
+        list.add("6");
+        Input input = new StubInput(list);
         new StartUI(tracker, input).init();
         assertThat(tracker.findById(item.getId()).getName(), is("first name"));
     }
@@ -59,9 +79,13 @@ public class StubInputTest {
         Tracker tracker = new Tracker();
         tracker.add(first);
         tracker.add(second);
-        Input input = new StubInput(new String[]{"3", second.getId(), "6"});
+        List<String> list = new ArrayList<String>();
+        list.add("3");
+        list.add(second.getId());
+        list.add("6");
+        Input input = new StubInput(list);
         new StartUI(tracker, input).init();
-        assertThat(tracker.findAll()[0].getName(), is(first.getName()));
+        assertThat(tracker.findAll().get(0).getName(), is(first.getName()));
     }
 
     /**
@@ -74,7 +98,11 @@ public class StubInputTest {
         Tracker tracker = new Tracker();
         tracker.add(first);
         tracker.add(second);
-        Input input = new StubInput(new String[]{"4", second.getId(), "6"});
+        List<String> list = new ArrayList<String>();
+        list.add("4");
+        list.add(second.getId());
+        list.add("6");
+        Input input = new StubInput(list);
         new StartUI(tracker, input).init();
         assertThat(tracker.findById(second.getId()).getId(), is(second.getId()));
     }
@@ -89,9 +117,13 @@ public class StubInputTest {
         Tracker tracker = new Tracker();
         tracker.add(first);
         tracker.add(second);
-        Input input = new StubInput(new String[]{"5", first.getName(), "6"});
+        List<String> list = new ArrayList<String>();
+        list.add("5");
+        list.add(first.getId());
+        list.add("6");
+        Input input = new StubInput(list);
         new StartUI(tracker, input).init();
-        assertThat(tracker.findByName(first.getName())[1], is(second));
+        assertThat(tracker.findByName(first.getName()).get(0), is(second));
     }
 
 }
