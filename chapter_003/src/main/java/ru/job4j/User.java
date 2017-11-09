@@ -1,7 +1,7 @@
 package ru.job4j;
 
 /**
- * Class Sser.
+ * Class User.
  * @author Artem Bartenev (bartenev92@gmail.com)
  * @version $Id$
  * @since 06.11.2017
