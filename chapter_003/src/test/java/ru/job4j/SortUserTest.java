@@ -34,9 +34,8 @@ public class SortUserTest {
         Set<User> sort = sortUser.sort(list);
         for (User sorted : sort) {
             System.out.println(sorted);
-        assertThat(new User("Artur", 19).compareTo(new User("Pavel", 23)), is(-1));
+            assertThat(new User("Artur", 19).compareTo(new User("Pavel", 23)), is(-4));
         }
     }
-
 
 }

@@ -2,10 +2,7 @@ package ru.job4j;
 
 import ru.job4j.models.User;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Sorting Users .
@@ -24,8 +21,6 @@ public class SortUser {
         for (int index = 0; index < list.size(); index++) {
             set.add(list.get(index));
         }
-         return set;
-
-
+        return set;
     }
 }
