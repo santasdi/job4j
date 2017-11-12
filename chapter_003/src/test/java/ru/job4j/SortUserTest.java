@@ -10,6 +10,7 @@ import java.util.Set;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Test for sort list of users to set.
@@ -38,4 +39,37 @@ public class SortUserTest {
         }
     }
 
+    /**
+     * Sorted list is equal not sorted after sorting by only names.
+     */
+    @Test
+    public void whenSortingListTheReturnSortingListByNames() {
+        SortUser sortUser = new SortUser();
+        List<User> notSortedList = new ArrayList<User>();
+        List<User> Sortedlist = new ArrayList<User>();
+        notSortedList.add(new User("Pavel", 23));
+        notSortedList.add(new User("Alexander", 11));
+        Sortedlist.add(new User("Pavel", 23));
+        Sortedlist.add(new User("Alexander", 11));
+
+        assertThat(Sortedlist, is(sortUser.sortNameLength(notSortedList)));
+
+    }
+
+    /**
+     * Sorted list is equal not sorted after sorting by names and ages.
+     */
+    @Test
+    public void whenSortingListTheReturnSortingListByNamesAndAges() {
+        SortUser sortUser = new SortUser();
+        List<User> notSortedList = new ArrayList<User>();
+        List<User> Sortedlist = new ArrayList<User>();
+        notSortedList.add(new User("Alexander", 99));
+        notSortedList.add(new User("Alexander", 11));
+        Sortedlist.add(new User("Alexander", 11));
+        Sortedlist.add(new User("Alexander", 99));
+
+        assertThat(Sortedlist, is(sortUser.sortByAllFields(notSortedList)));
+
+    }
 }
