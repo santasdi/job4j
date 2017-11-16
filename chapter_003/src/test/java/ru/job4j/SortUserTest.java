@@ -27,7 +27,7 @@ public class SortUserTest {
         SortUser sortUser = new SortUser();
         List<User> list = new ArrayList<User>();
         list.add(new User("Artur", 19));
-        list.add(new User("Pavel", 23));
+        list.add(new User("Pavel", 19));
         list.add(new User("Oleg", 55));
         list.add(new User("Kirill", 11));
         list.add(new User("Eugeny", 43));
