@@ -33,7 +33,7 @@ public class TimeCounter {
 
     public long delete(Collection<String> collection, int amount) {
         long start = System.currentTimeMillis();
-        for(int i = 0; i < amount; i++) {
+        for (int i = 0; i < amount; i++) {
             collection.remove("Строка №" + i);
         }
         return System.currentTimeMillis() - start;

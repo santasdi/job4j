@@ -4,8 +4,8 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
-import ru.job4j.bankApplication.*;
-import ru.job4j.bankApplication.User;
+import ru.job4j.bankapplication.*;
+import ru.job4j.bankapplication.User;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package ru.job4j.bankApplication;
+package ru.job4j.bankapplication;
 
 /**
  * User parameters.
@@ -38,12 +38,19 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         User user = (User) o;
 
-        if (passport != user.passport) return false;
+        if (passport != user.passport) {
+            return false;
+        }
+
         return name.equals(user.name);
     }
 

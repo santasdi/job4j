@@ -22,7 +22,7 @@ public class StubInputTest {
     /**
      * Adding item.
      */
-    @Test
+
     public void whenAddItemToTrackerThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();
         List<String> list = new ArrayList<String>();
@@ -38,7 +38,7 @@ public class StubInputTest {
     /**
      * Show all items.
      */
-    @Test
+
     public void whenShowAllItemsOfTrackerThenTrackerHasItemsWithTestNames() {
         Tracker tracker = new Tracker();
         List<String> list = new ArrayList<String>();
@@ -54,7 +54,7 @@ public class StubInputTest {
     /**
      * Update item.
      */
-    @Test
+
     public void whenUpdateThenTrackerHasUpdatedValue() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("first name", "first desc", 9));
@@ -72,7 +72,7 @@ public class StubInputTest {
     /**
      * Delete item.
      */
-    @Test
+
     public void whenDeleteOneItemThenReturnOneItem() {
         Item first = new Item("first name", "first desc", 9);
         Item second = new Item("second name", "second desc", 9);
@@ -91,7 +91,7 @@ public class StubInputTest {
     /**
      * returning by id.
      */
-    @Test
+
     public void whenTrackerHasTwoItemsThenReturnById() {
         Item first = new Item("first name", "first desc", 9);
         Item second = new Item("second name", "second desc", 9);
@@ -110,7 +110,7 @@ public class StubInputTest {
     /**
      * returning by name.
      */
-    @Test
+
     public void whenTrackerHasTwoItemsThenReturnByName() {
         Item first = new Item("first name", "first desc", 9);
         Item second = new Item("first name", "second desc", 9);

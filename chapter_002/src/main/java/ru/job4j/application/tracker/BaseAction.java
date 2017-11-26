@@ -33,7 +33,7 @@ public abstract class BaseAction implements UserAction {
 
     @Override
     public String info() {
-        return String.format("%s. %s",this.key, name);
+        return String.format("%s. %s", this.key, name);
     }
 
 }

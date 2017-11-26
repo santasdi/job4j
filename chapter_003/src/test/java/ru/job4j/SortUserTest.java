@@ -45,13 +45,13 @@ public class SortUserTest {
     public void whenSortingListTheReturnSortingListByNames() {
         SortUser sortUser = new SortUser();
         List<User> notSortedList = new ArrayList<User>();
-        List<User> Sortedlist = new ArrayList<User>();
+        List<User> sortedlist = new ArrayList<User>();
         notSortedList.add(new User("Pavel", 23));
         notSortedList.add(new User("Alexander", 11));
-        Sortedlist.add(new User("Pavel", 23));
-        Sortedlist.add(new User("Alexander", 11));
+        sortedlist.add(new User("Pavel", 23));
+        sortedlist.add(new User("Alexander", 11));
 
-        assertThat(Sortedlist, is(sortUser.sortNameLength(notSortedList)));
+        assertThat(sortedlist, is(sortUser.sortNameLength(notSortedList)));
 
     }
 
@@ -62,13 +62,13 @@ public class SortUserTest {
     public void whenSortingListTheReturnSortingListByNamesAndAges() {
         SortUser sortUser = new SortUser();
         List<User> notSortedList = new ArrayList<User>();
-        List<User> Sortedlist = new ArrayList<User>();
+        List<User> sortedlist = new ArrayList<User>();
         notSortedList.add(new User("Alexander", 99));
         notSortedList.add(new User("Alexander", 11));
-        Sortedlist.add(new User("Alexander", 11));
-        Sortedlist.add(new User("Alexander", 99));
+        sortedlist.add(new User("Alexander", 11));
+        sortedlist.add(new User("Alexander", 99));
 
-        assertThat(Sortedlist, is(sortUser.sortByAllFields(notSortedList)));
+        assertThat(sortedlist, is(sortUser.sortByAllFields(notSortedList)));
 
     }
 }

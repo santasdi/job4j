@@ -58,7 +58,7 @@ public class Tracker {
     public void update(String id, Item item) {
         for (int index = 0; index < this.items.size(); index++) {
             if (this.items.get(index) != null && id.equals(this.items.get(index).getId())) {
-                this.items.set(index,item);
+                this.items.set(index, item);
             }
         }
     }
@@ -79,8 +79,9 @@ public class Tracker {
     public List<Item> findByName(String key) {
         List<Item> result = new ArrayList<Item>();
         for (int index = 0; index < this.items.size(); index++) {
-            if(key.equals(this.items.get(index).getName()));
+            if (key.equals(this.items.get(index).getName())) {
             result.add(this.items.get(index));
+            }
         }
         return result;
     }

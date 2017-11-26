@@ -3,4 +3,4 @@
  * @author Artem Bartenev (bartenev92@gmail.com)
  * @version $Id$
  */
-package ru.job4j.bankApplication;
+package ru.job4j.bankapplication;

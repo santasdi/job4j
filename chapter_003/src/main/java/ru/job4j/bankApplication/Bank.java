@@ -1,4 +1,4 @@
-package ru.job4j.bankApplication;
+package ru.job4j.bankapplication;
 
 import java.util.*;
 
@@ -84,7 +84,7 @@ public class Bank {
             if (srcAccount.equals(account) & account.getValue() >= amount) {
                 account.setValue(account.getValue() - amount);
                 accountsSourceUser.set(accountsSourceUser.indexOf(account), account);
-                this.bank.put(srcUser,accountsSourceUser);
+                this.bank.put(srcUser, accountsSourceUser);
                 for (Account accountDst : accountsDestinationUser) {
                     if (dstAccount.equals(accountDst)) {
                         accountDst.setValue(accountDst.getValue() + amount);
@@ -95,7 +95,7 @@ public class Bank {
                         break;
                     }
                 }
-            }else {
+            } else {
                 result = false;
                 }
             break;

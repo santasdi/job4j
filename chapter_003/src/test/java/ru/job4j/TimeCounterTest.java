@@ -28,7 +28,7 @@ public class TimeCounterTest {
      * Adding objects to ArrayList.
      */
     @Test
-    public void whenAddingObjectsToArrayListCollectionThenReturnTimeOfAdding(){
+    public void whenAddingObjectsToArrayListCollectionThenReturnTimeOfAdding() {
         TimeCounter timeCounter = new TimeCounter();
         long time = timeCounter.add(arrayList, 100000);
         System.out.println("Время добавления объектов в ArrayList = " + time);
@@ -37,16 +37,16 @@ public class TimeCounterTest {
      * Deleting objects from ArrayList.
      */
     @Test
-    public void whenDeletingObjectsFromArrayListTheReturnTimeOfDeleting(){
+    public void whenDeletingObjectsFromArrayListTheReturnTimeOfDeleting() {
         TimeCounter timeCounter = new TimeCounter();
-        long time = timeCounter.delete(arrayList,100000);
+        long time = timeCounter.delete(arrayList, 100000);
         System.out.println("Время удаления объектов в ArrayLIst = " + time);
     }
     /**
      * Adding objects to LinkedList.
      */
     @Test
-    public void whenAddingObjectsToLinkedListCollectionThenReturnTimeOfAdding(){
+    public void whenAddingObjectsToLinkedListCollectionThenReturnTimeOfAdding() {
         TimeCounter timeCounter = new TimeCounter();
         long time = timeCounter.add(linkedList, 100000);
         System.out.println("Время добавления объектов в LinkedList = " + time);
@@ -55,16 +55,16 @@ public class TimeCounterTest {
      * Deleting objects from LinkedList.
      */
     @Test
-    public void whenDeletingObjectsFromLinkedListTheReturnTimeOfDeleting(){
+    public void whenDeletingObjectsFromLinkedListTheReturnTimeOfDeleting() {
         TimeCounter timeCounter = new TimeCounter();
-        long time = timeCounter.delete(linkedList,100000);
+        long time = timeCounter.delete(linkedList, 100000);
         System.out.println("Время удаления объектов в LinkedLIst = " + time);
     }
     /**
      * Adding objects to TreeSet.
      */
     @Test
-    public void whenAddingObjectsToTreeSetCollectionThenReturnTimeOfAdding(){
+    public void whenAddingObjectsToTreeSetCollectionThenReturnTimeOfAdding() {
         TimeCounter timeCounter = new TimeCounter();
         long time = timeCounter.add(treeSet, 100000);
         System.out.println("Время добавления объектов в TreeSet = " + time);

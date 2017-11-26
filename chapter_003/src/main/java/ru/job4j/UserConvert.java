@@ -17,10 +17,10 @@ public class UserConvert {
      * @param list is list of users
      * @return map
      */
-    HashMap<Integer,User> process(List<User> list){
+    HashMap<Integer, User> process(List<User> list) {
         HashMap<Integer, User> map = new HashMap<Integer, User>();
-        for (User user : list){
-            map.put(user.getId(),user);
+        for (User user : list) {
+            map.put(user.getId(), user);
         }
         return map;
     }

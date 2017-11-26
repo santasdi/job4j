@@ -37,8 +37,8 @@ public class MenuTracker {
      * @return count of actions.
      */
     public List<UserAction> fillActions() {
-        this.action.add(new AddItem(0,"Add item"));
-        this.action.add(new ShowItems(1,"Show all items"));
+        this.action.add(new AddItem(0, "Add item"));
+        this.action.add(new ShowItems(1, "Show all items"));
         this.action.add(new EditItem(2, "Edit item"));
         this.action.add(new DeleteItem(3, "Delete item"));
         this.action.add(new FindById(4, "Find by id"));

@@ -57,7 +57,7 @@ public class ConvertListTest {
         list.add(new int[]{4, 5, 6, 7, 8});
         list.add(new int[]{9, 10, 11, 12});
         List<Integer> expected = new ArrayList<Integer>();
-        for (int i = 1; i <= 12; i++){
+        for (int i = 1; i <= 12; i++) {
             expected.add(i);
         }
         assertThat(this.convert.convert(list), is(expected));

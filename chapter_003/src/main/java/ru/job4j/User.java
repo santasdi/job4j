@@ -23,7 +23,7 @@ public class User {
         this.city = city;
     }
 
-    public User(String name, String city, int id){
+    public User(String name, String city, int id) {
         this.name = name;
         this.city = city;
         this.id = id;
@@ -43,13 +43,20 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+    }
         User user = (User) o;
 
-        if (id != user.id) return false;
-        if (!name.equals(user.name)) return false;
+        if (id != user.id) {
+            return false;
+        }
+        if (!name.equals(user.name)) {
+            return false;
+        }
         return city.equals(user.city);
     }
 

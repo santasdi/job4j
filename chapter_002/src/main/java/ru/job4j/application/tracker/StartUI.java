@@ -46,7 +46,7 @@ public class StartUI {
         int key;
         do {
             menu.show();
-            key = input.ask("Select:",action);
+            key = input.ask("Select:", action);
             menu.select(key);
             if (key == 6) {
                 status = false;

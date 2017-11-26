@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 public class UserConvertTest {
 
     @Test
-    public void whenConvertListThenReturnMapList(){
+    public void whenConvertListThenReturnMapList() {
         UserConvert userConvert = new UserConvert();
         List<User> list = new ArrayList<User>();
 
@@ -27,9 +27,9 @@ public class UserConvertTest {
         list.add(new User("Oleg", "St.Peterburg", 3));
 
         HashMap<Integer, User> map = new HashMap<Integer, User>();
-        map.put(1,new User("Artem", "St.Peterburg", 1));
-        map.put(2,new User("Andrey", "St.Peterburg", 2));
-        map.put(3,new User("Oleg", "St.Peterburg", 3));
+        map.put(1, new User("Artem", "St.Peterburg", 1));
+        map.put(2, new User("Andrey", "St.Peterburg", 2));
+        map.put(3, new User("Oleg", "St.Peterburg", 3));
         assertThat(userConvert.process(list), is(map));
     }
 
